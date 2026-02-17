@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Recursify Sync",
+  "version": "1.0.0",
+  "description": "Auto-sync accepted LeetCode problems",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "http://localhost:8080/*",
+    "https://leetcode.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content/content.js"]
+    }
+  ]
+}
