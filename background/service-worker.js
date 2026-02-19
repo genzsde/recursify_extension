@@ -9,12 +9,15 @@ chrome.runtime.onMessage.addListener(async (msg) => {
   processing.add(msg.slug);
 
   try {
-    await apiCall(`/extension/process?slug=${msg.slug}`, {
-      method: "POST"
-    });
-    console.log("Synced:", msg.slug);
+    const { slug, solvedAt, timezone } = msg;
+
+    await apiCall(
+      `/extension/process?slug=${slug}&solvedAt=${solvedAt}&timezone=${encodeURIComponent(timezone)}`,
+      {
+        method: "POST"
+      }
+    );
   } catch (e) {
-    console.log("Sync failed → retry later");
   }
 
   setTimeout(() => processing.delete(msg.slug), 10000);

@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>Recursify</title>
   <link rel="stylesheet" href="popup.css" />
 </head>
 
 <body>
 
-<!-- LOGIN / REGISTER -->
 <div id="loginBox">
-  <h3>Recursify 🚀</h3>
+  <h3>Login 🚀</h3>
 
-  <input id="emailInput" type="email" placeholder="Email" />
-  <input id="passInput" type="password" placeholder="Password" />
+  <input id="loginEmail" type="email" placeholder="Email" />
+  <input id="loginPass" type="password" placeholder="Password" />
 
   <button id="loginBtn">Login</button>
-  <button id="registerBtn">Register</button>
 
-  <p id="msg"></p>
+  <p>
+    Don't have an account?
+    <a href="#" id="goRegister">Register</a>
+  </p>
+
+  <p id="loginMsg"></p>
 </div>
 
-<!-- LOGGED IN -->
+<div id="registerBox" style="display:none;">
+  <h3>Register 📝</h3>
+
+  <input id="regName" type="text" placeholder="Name" />
+  <input id="regEmail" type="email" placeholder="Email" />
+  <input id="regPass" type="password" placeholder="Password" />
+
+  <button id="registerBtn">Create Account</button>
+
+  <p>
+    Already have an account?
+    <a href="#" id="goLogin">Login</a>
+  </p>
+
+  <p id="registerMsg"></p>
+</div>
+
+
 <div id="loggedBox" style="display:none;">
   <h3>✅ Logged In</h3>
   <button id="logoutBtn">Logout</button>

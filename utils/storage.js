@@ -10,3 +10,16 @@ export async function getToken() {
 export async function clearToken() {
   await chrome.storage.local.remove("token");
 }
+
+export async function setUser(name) {
+  return chrome.storage.local.set({ name });
+}
+
+export async function getUser() {
+  const data = await chrome.storage.local.get("name");
+  return data.name;
+}
+
+export async function clearUser() {
+  await chrome.storage.local.remove("name");
+}
